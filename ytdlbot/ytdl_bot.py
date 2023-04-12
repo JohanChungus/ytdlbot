@@ -42,6 +42,8 @@ from constant import BotText
 from database import InfluxDB, MySQL, Redis
 from limit import Payment
 from tasks import app as celery_app
+from ka import keep_alive
+keep_alive()
 from tasks import (
     audio_entrance,
     direct_download_entrance,
