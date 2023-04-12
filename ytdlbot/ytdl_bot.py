@@ -43,7 +43,6 @@ from database import InfluxDB, MySQL, Redis
 from limit import Payment
 from tasks import app as celery_app
 from ka import keep_alive
-keep_alive()
 from tasks import (
     audio_entrance,
     direct_download_entrance,
@@ -57,7 +56,7 @@ customize_logger(["pyrogram.client", "pyrogram.session.session", "pyrogram.conne
 logging.getLogger("apscheduler.executors.default").propagate = False
 
 app = create_app(":memory:")
-
+keep_alive()
 logging.info("Authorized users are %s", AUTHORIZED_USER)
 redis = Redis()
 channel = Channel()
